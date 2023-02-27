@@ -24,6 +24,7 @@ const coop = require("./routes/Cooperativa")
 const product = require("./routes/Produto")
 const compra = require("./routes/Compra")
 const stripe = require("./routes/stripe")
+const card = require("./routes/Cartao")
 
 app.use("/pic", PicRoute)
 app.use("/auth", user)
@@ -31,6 +32,7 @@ app.use("/coop", coop)
 app.use("/product", product)
 app.use("/compra", compra)
 app.use("/pay", stripe)
+app.use("/card", card)
 
 
 const PORT=process.env.PORT

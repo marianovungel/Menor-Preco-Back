@@ -29,9 +29,13 @@ const CoopSchema = new mongoose.Schema({
         type:String,
         default: ""
     },
+    type:{
+        type:String,
+        default: "coop"
+    },
     profilePic:{
         type:String,
-        default: "https://cdn-icons-png.flaticon.com/512/74/74472.png"
+        default: "uploads/user.png"
     },
     
 },

@@ -15,9 +15,17 @@ const UserSchema = new mongoose.Schema({
     password:{
         type:String,
     },
+    type:{
+        type:String,
+        default: "use"
+    },
+    endereco:{
+        type:String,
+        default: ""
+    },
     profilePic:{
         type:String,
-        default: "https://cdn-icons-png.flaticon.com/512/74/74472.png"
+        default: "uploads/user.png"
     },
     whatsapp: {
         type:String,

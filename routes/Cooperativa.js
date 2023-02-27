@@ -62,7 +62,9 @@ router.get("/:id", async(req, res)=>{
 })
 router.put("/:id", async(req, res)=>{
     try {
-        const coops = await Coop.findByIdAndUpdate(req.params.id, req.body)
+        const coops = await Coop.findByIdAndUpdate(req.params.id, {
+            $set: req.body
+        }, {new:true});
         res.status(200).json(coops);
     } catch (error) {
         return res.status(404).json(err);

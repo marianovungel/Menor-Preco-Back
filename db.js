@@ -5,7 +5,7 @@ require('dotenv').config()
 mongoose.set("strictQuery", true)
 
 async function main(){
-    await mongoose.connect(`${process.env.URLDB}`);
+    await mongoose.connect(`${process.env.URL_MONGDB}`);
     console.log("Success Conected!");
 }
 

@@ -4,9 +4,9 @@ const Compra = require("../models/Compra")
 
 router.post("/criar", async(req, res)=>{
     try{
-        const nerUser = new Compra(req.body);
-        const user = await nerUser.save();
-        res.status(200).json(user);
+        const comprar = new Compra(req.body);
+        const compras = await comprar.save();
+        res.status(200).json(compras);
     }catch(err){
         res.status(500).json(err);
     }
@@ -26,6 +26,30 @@ router.get("/", async(req, res)=>{
 router.get("/:id", async(req, res)=>{
     try {
         const Compras = await Compra.findById(req.params.id)
+        res.status(200).json(Compras);
+    } catch (error) {
+        return res.status(404).json(err);
+    }
+
+})
+router.get("/my/:id", async(req, res)=>{
+    try {
+        const Compras = await Compra.find({
+            iduser: req.params.id,
+            estado: "pago" 
+        })
+        res.status(200).json(Compras);
+    } catch (error) {
+        return res.status(404).json(err);
+    }
+
+})
+router.get("/coop/:id", async(req, res)=>{
+    try {
+        const Compras = await Compra.find({
+            idcoop: req.params.id,
+            estado: "pago" 
+        })
         res.status(200).json(Compras);
     } catch (error) {
         return res.status(404).json(err);

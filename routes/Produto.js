@@ -43,6 +43,15 @@ router.get("/coop/:id", async(req, res)=>{
     }
 
 })
+router.get("/pesquisa/:id", async(req, res)=>{
+    try {
+        const produtos = await Produto.find({nome: req.params.id})
+        res.status(200).json(produtos);
+    } catch (error) {
+        return res.status(404).json(err);
+    }
+
+})
 router.put("/:id", async(req, res)=>{
     try {
         const product = await Produto.findById(req.params.id)
