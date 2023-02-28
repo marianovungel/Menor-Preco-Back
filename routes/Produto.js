@@ -43,6 +43,7 @@ router.get("/coop/:id", async(req, res)=>{
     }
 
 })
+
 router.get("/pesquisa/:id", async(req, res)=>{
     try {
         const produtos = await Produto.find({nome: req.params.id})
